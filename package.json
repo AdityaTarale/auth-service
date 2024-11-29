@@ -1,7 +1,7 @@
 {
-    "name": "template",
+    "name": "auth-service",
     "version": "1.0.0",
-    "description": "nodejs project template",
+    "description": "auth-service project",
     "main": "index.js",
     "scripts": {
         "format:check": "prettier . --check",
