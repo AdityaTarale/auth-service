@@ -1,6 +1,6 @@
 #### Building the Docker Image
 ```bash
-docker build -t auth-service:dev -f docker/development/Dockerfile .
+docker build -t auth-service:dev -f docker/dev/Dockerfile .
 ```
 
 #### Running the Express App in a Docker Container locally
