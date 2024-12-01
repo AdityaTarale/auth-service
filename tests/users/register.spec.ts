@@ -1,3 +1,4 @@
+import { App } from 'supertest/types'
 import app from '../../src/app'
 import request from 'supertest'
 
@@ -13,7 +14,7 @@ describe('POST /auth/register', () => {
                 password: 'password123',
             }
             // Act
-            const response = await request(app)
+            const response = await request(app as unknown as App)
                 .post('/auth/register')
                 .send(userData)
 
@@ -30,7 +31,7 @@ describe('POST /auth/register', () => {
                 password: 'password123',
             }
 
-            const response = await request(app)
+            const response = await request(app as unknown as App)
                 .post('/auth/register')
                 .send(userData)
 
