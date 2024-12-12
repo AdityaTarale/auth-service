@@ -4,6 +4,11 @@ import { Config } from '.'
 const logger = winston.createLogger({
     level: 'info', // Root/Fallback level
     defaultMeta: { service: Config.SERVICE_NAME },
+    // Root format
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.json(),
+    ),
     transports: [
         new winston.transports.File({
             level: 'info',
