@@ -1,13 +1,13 @@
 import { NextFunction, Response } from 'express'
 
 import { validationResult } from 'express-validator'
+import createHttpError from 'http-errors'
 import { JwtPayload } from 'jsonwebtoken'
 import { Logger } from 'winston'
+import { CredentialService } from '../services/CredentialService'
 import { TokenService } from '../services/TokenService'
 import { UserService } from '../services/UserService'
-import { RegisterUserRequest } from '../types'
-import createHttpError from 'http-errors'
-import { CredentialService } from '../services/CredentialService'
+import { AuthRequest, RegisterUserRequest } from '../types'
 
 export class AuthController {
     constructor(
@@ -164,5 +164,12 @@ export class AuthController {
             next(error)
             return
         }
+    }
+
+    async self(req: AuthRequest, res: Response) {
+        // token req.auth.sub
+        const user = await this.userService.findById(req.auth.sub)
+
+        res.json(user)
     }
 }
