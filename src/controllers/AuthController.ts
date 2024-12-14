@@ -170,6 +170,6 @@ export class AuthController {
         // token req.auth.sub
         const user = await this.userService.findById(req.auth.sub)
 
-        res.json(user)
+        res.json({ ...user, password: undefined })
     }
 }
