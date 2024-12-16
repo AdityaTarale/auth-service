@@ -13,7 +13,17 @@ export interface RegisterUserRequest extends Request {
 
 export interface AuthRequest extends Request {
     auth: {
-        sub: number
+        id?: string
+        sub: string
         role: number
     }
+}
+
+export type AuthCookie = {
+    accessToken: string
+    refreshToken: string
+}
+
+export interface IRefreshTokenPayload {
+    id: string
 }
